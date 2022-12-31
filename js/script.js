@@ -16,19 +16,20 @@ if (navigator.serviceWorker) {
 }
 
 //process
-window.onload = function() {
+window.onload = function () {
   // this calculates volume of a pyramid
 
   const params = new URLSearchParams(document.location.search)
 
   // input
-  const radius = params.get('r')
+  const radius = params.get("r")
 
   // process
-  const vol = ( 4 / 3 ) * Math.PI * radius ** 3
+  const vol = (4 / 3) * Math.PI * radius ** 3
   const dimensions = "<ul>\n<li>radius = " + radius + "</li>\n</ul>"
 
   // output
-  document.getElementById('dimensions').innerHTML = dimensions
-  document.getElementById('volume').innerHTML = 'Volume is: ' + vol.toFixed(2) + ' cm³'
+  document.getElementById("dimensions").innerHTML = dimensions
+  document.getElementById("volume").innerHTML =
+    "Volume is: " + vol.toFixed(2) + " cm³"
 }
