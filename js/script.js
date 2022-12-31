@@ -10,25 +10,25 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit5-04-JS/sw.js", {
-    scope: "/ICS2O-Unit5-04-JS/",
+  navigator.serviceWorker.register("/ICS20-Unit6-04-JS/sw.js", {
+    scope: "/ICS20-Unit6-04-JS/",
   })
 }
 
 //process
-function myButtonClicked() {
-  const day = document.getElementById("week").value
-  const typeAge = document.getElementById("typeAge").value
+window.onload = function() {
+  // this calculates volume of a pyramid
 
-  if (
-    day == "Tuesday" ||
-    day == "Thursday" ||
-    (typeAge >= 12 && typeAge <= 25)
-  ) {
-    document.getElementById("weekday-discount").innerHTML =
-      "You are eligible to get a discount!"
-  } else {
-    document.getElementById("weekday-discount").innerHTML =
-      "You are not eligible to get a discount..."
-  }
+  const params = new URLSearchParams(document.location.search)
+
+  // input
+  const radius = params.get('r')
+
+  // process
+  const vol = ( 4 / 3 ) * Math.PI * radius ** 3
+  const dimensions = "<ul>\n<li>radius = " + radius + "</li>\n</ul>"
+
+  // output
+  document.getElementById('dimensions').innerHTML = dimensions
+  document.getElementById('volume').innerHTML = 'Volume is: ' + vol.toFixed(2) + ' cm³'
 }
